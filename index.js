@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 3001;
 const __dirname = path.resolve();
 
 //middlewares
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
@@ -38,6 +39,9 @@ app.use(cors({
 app.use(cors(corsOptions));
 
 // yha pr apni api ayengi
+app.get('/hello', (req, res) => {
+  res.send('Hello World from Vercel!');
+});
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/post", postRoute);
 app.use("/api/v1/reel", reelRoute);
@@ -54,4 +58,5 @@ server.listen(PORT, () => {
    
     console.log(`Server listen at port ${PORT}`);
     
+
 });
