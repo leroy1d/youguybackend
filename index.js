@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 const corsOptions = {
-    origin: [`https://youguybackend.vercel.app:8001`, 'https://youguyfrontend.vercel.app'], // autorise seulement ce domaine
+    origin: [`https://youguybackend.vercel.app`, 'https://youguyfrontend.vercel.app'], // autorise seulement ce domaine
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -39,9 +39,6 @@ app.use(cors({
 app.use(cors(corsOptions));
 
 // yha pr apni api ayengi
-app.get('/hello', (req, res) => {
-  res.send('Hello World from Vercel!');
-});
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/post", postRoute);
 app.use("/api/v1/reel", reelRoute);
